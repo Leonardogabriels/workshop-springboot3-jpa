@@ -2,6 +2,7 @@ package com.leonardo.webServices.entities;
 
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.leonardo.webServices.entities.PK.OrdemItemPK;
 
 import jakarta.persistence.EmbeddedId;
@@ -27,6 +28,8 @@ public class OrderItem {
 		this.quantity = quantity;
 		this.price = price;
 	}
+	
+	@JsonIgnore
 	public Order getOrder() {
 		return id.getOrder();
 	}
