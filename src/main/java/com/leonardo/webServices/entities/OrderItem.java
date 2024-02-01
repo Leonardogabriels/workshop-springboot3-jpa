@@ -38,6 +38,7 @@ public class OrderItem {
 		id.setOrder(order);
 		
 	}
+
 	public Product getPrduct() {
 		return id.getProduct();
 	}
