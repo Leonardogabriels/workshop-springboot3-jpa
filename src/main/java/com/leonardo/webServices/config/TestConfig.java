@@ -3,16 +3,12 @@ package com.leonardo.webServices.config;
 import java.time.Instant;
 import java.util.Arrays;
 
+import com.leonardo.webServices.entities.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import com.leonardo.webServices.entities.Category;
-import com.leonardo.webServices.entities.Order;
-import com.leonardo.webServices.entities.OrderItem;
-import com.leonardo.webServices.entities.Product;
-import com.leonardo.webServices.entities.User;
 import com.leonardo.webServices.entities.enums.OrderStatus;
 import com.leonardo.webServices.repositories.CategoryRepository;
 import com.leonardo.webServices.repositories.OrderItemRepository;
@@ -82,5 +78,9 @@ public class TestConfig implements CommandLineRunner {
 		OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice());
 		
 		orderItemRepository.saveAll(Arrays.asList(oi1,oi2,oi3,oi4));
+
+		Payment pay01 = new Payment(null, Instant.parse("2019-06-20T21:53:07Z"),o1);
+		o1.setPayment(pay01);
+		orderRepository.save(o1);
 	}
 }
