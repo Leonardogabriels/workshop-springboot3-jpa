@@ -29,4 +29,11 @@ public class UserService {
 
 		return repository.save(user);
 	}
+
+	public void delete(Long id){
+		User user = findById(id);
+		if (user != null){
+			repository.delete(user);
+		}
+	}
 }
